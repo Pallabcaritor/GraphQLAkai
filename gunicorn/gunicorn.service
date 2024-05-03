@@ -3,7 +3,7 @@ Description=gunicorn daemon
 Requires=gunicorn.socket
 After=network.target
 [Service]
-User=ubuntu
+User=ec2-user
 Group=www-data
 WorkingDirectory=/home/ubuntu/GraphQLAkai
 ExecStart=/home/ubuntu/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ubuntu/GraphQLAkai/restaurant_graphql_api/restaurant_graphql_api.sock restaurant_graphql_api.wsgi:application
