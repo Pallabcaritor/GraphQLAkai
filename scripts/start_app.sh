@@ -1,13 +1,12 @@
 #!/usr/bin/bash 
 
-sed -i 's/\[]/\["13.41.72.170"]/' /home/ubuntu/GraphQLAkai/restaurant_graphql_api/settings.py
+sed -i 's/\[]/\["54.144.250.113"]/' /home/ubuntu/GraphQLAkai/restaurant_graphql_api/settings.py
 
 python manage.py migrate 
 python manage.py makemigrations     
 python manage.py collectstatic
 sudo service gunicorn restart
 sudo service nginx restart
-#python manage.py runserver
 #sudo tail -f /var/log/nginx/error.log
 #sudo systemctl reload nginx
 #sudo tail -f /var/log/nginx/error.log
