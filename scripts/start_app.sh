@@ -5,9 +5,9 @@ sed -i 's/\[]/\["54.144.250.113"]/' /home/ubuntu/GraphQLAkai/restaurant_graphql_
 python manage.py migrate 
 python manage.py makemigrations     
 python manage.py collectstatic
-python3 manage.py runserver
 sudo service gunicorn restart
 sudo service nginx restart
+python manage.py runserver
 #sudo tail -f /var/log/nginx/error.log
 #sudo systemctl reload nginx
 #sudo tail -f /var/log/nginx/error.log
