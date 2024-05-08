@@ -1,17 +1,19 @@
-# pull official base image
+# The first instruction is what image we want to base our container on
+# We Use an official Python runtime as a parent image
 FROM python:3.12.3
 
-# set work directory
-WORKDIR /home/caritor-backend/Desktop/GraphQL_Github/GraphQLAkai
-
-# set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
+# The enviroment variable ensures that the python output is set straight
+# to the terminal with out buffering it first
 ENV PYTHONUNBUFFERED 1
 
-# install dependencies
-RUN pip install --upgrade pip
-COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+# create root directory for our project in the container
+RUN mkdir /music_service
 
-# copy project
-COPY . .
+# Set the working directory to /music_service
+WORKDIR /music_service
+
+# Copy the current directory contents into the container at /music_service
+ADD . /music_service/
+
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
